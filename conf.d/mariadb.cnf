@@ -1,0 +1,12 @@
+[client]
+default-character-set = utf8
+
+[mysqld]
+innodb_buffer_pool_size	= 256M
+max_allowed_packet = 1073741824
+innodb_file_per_table = 1
+
+character-set-server = utf8
+collation-server = utf8_general_ci
+character_set_server = utf8
+collation_server = utf8_general_ci
