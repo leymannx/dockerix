@@ -1,0 +1,8 @@
+apache-multiphp
+
+databases
+
+www/php*/*
+!www/php*/index.php
+
+www/supervisord.*
