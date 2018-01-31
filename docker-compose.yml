@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
 
@@ -10,8 +10,9 @@ services:
       - 8871:8871
     depends_on:
       - mariadb
+      - filesync_multiphp
     volumes:
-      - ./www:/var/www:consistent
+      - /var/www
       - ./conf.d/php56.ini:/etc/php/5.6/fpm/conf.d/php56.ini:delegated
       - ./conf.d/php71.ini:/etc/php/7.1/fpm/conf.d/php71.ini:delegated
     working_dir: /var/www
@@ -19,10 +20,38 @@ services:
   mariadb:
     image: mariadb
     restart: always
+    depends_on:
+      - filesync_mariadb
     volumes:
-      - ./databases:/var/lib/mysql:consistent
+      - /var/lib/mysql
       - ./conf.d/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf:delegated
     environment:
       MYSQL_ROOT_PASSWORD: root
     # Enable database 4 byte UTF-8 support.
     # command: mysqld --user=root --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  filesync_multiphp:
+    image: cweagans/bg-sync
+    restart: always
+    volumes:
+      - ./www:/source
+    volumes_from:
+      - multiphp
+    environment:
+      - SYNC_DESTINATION=/var/www
+      - SYNC_MAX_INOTIFY_WATCHES=400000
+      - SYNC_VERBOSE=1
+    privileged: true
+
+  filesync_mariadb:
+    image: cweagans/bg-sync
+    restart: always
+    volumes:
+      - ./databases:/source
+    volumes_from:
+      - mariadb
+    environment:
+      - SYNC_DESTINATION=/var/lib/mysql
+      - SYNC_MAX_INOTIFY_WATCHES=40000
+      - SYNC_VERBOSE=1
+    privileged: true
