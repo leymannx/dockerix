@@ -20,7 +20,7 @@ services:
     image: mariadb
     restart: always
     volumes:
-      - ./databases:/var/lib/mysql:delegated
+      - ./databases:/var/lib/mysql:consistent
       - ./conf.d/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf:delegated
     environment:
       MYSQL_ROOT_PASSWORD: root
