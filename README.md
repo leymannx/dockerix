@@ -21,7 +21,7 @@ Tested with [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
 
 1. <code>$ git clone https://github.com/leymannx/dockerix.git --branch 0.1.1 dockerix</code>
 2. <code>$ cd dockerix</code>
-3. <code>$ docker-composer up -d --force-recreate</code>
+3. <code>$ docker-compose up -d --force-recreate</code>
 
 Now visit [http://localhost:8856](http://localhost:8856) or [http://localhost:8871](http://localhost:8871) in your browser to see the corresponding PHP info files.
 

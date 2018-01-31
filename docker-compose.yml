@@ -10,7 +10,6 @@ services:
       - 8871:8871
     depends_on:
       - mariadb
-      - filesync_multiphp
     volumes:
       - /var/www
       - ./conf.d/php56.ini:/etc/php/5.6/fpm/conf.d/php56.ini:delegated
@@ -20,8 +19,6 @@ services:
   mariadb:
     image: mariadb
     restart: always
-    depends_on:
-      - filesync_mariadb
     volumes:
       - /var/lib/mysql
       - ./conf.d/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf:delegated
