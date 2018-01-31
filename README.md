@@ -17,7 +17,7 @@ The databases can be accessed with <code>mysql -uroot -proot -hmariadb</code>. W
 
 ## Possible routine
 
-Tested with [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+Tested with [Docker for Mac](https://docs.docker.com/docker-for-mac/install/) (Stable channel Version 17.12.0-ce-mac49)
 
 1. <code>$ git clone https://github.com/leymannx/dockerix.git --branch 0.1.1 dockerix</code>
 2. <code>$ cd dockerix</code>
@@ -41,3 +41,9 @@ Or run drush commands:
 4. Update <code>RewriteBase</code> in <code>.htaccess</code>
 
 Now visit [http://localhost:8856/drupal7](http://localhost:8856/drupal7) in your browser and start the installation routine.
+
+## Performance
+
+Honestly without any fine-tuning page load times can be super bad with the initial **version 1** setup. Time-to-First-Byte of up to 10 seconds per node. This delay is caused by Docker for Mac's built-in volume mount and file sync process. You could simply fix it by not mounting any host volumes. But that really can't be it.
+
+Starting with **version 2** I've included two of cweagon's [bg-sync](https://hub.docker.com/r/cweagans/bg-sync/) containers. They dramatically improve page load times. They only need a little while for the first sync ( 5-15 minutes). From then on Time-To-First-Byte will be less then a second. Pretty good. Only this limits this version to Mac OS and Docker for Mac. You may want to try other background sync approaches on a differing host. 
