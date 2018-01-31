@@ -19,7 +19,7 @@ The databases can be accessed with <code>mysql -uroot -proot -hmariadb</code>. W
 
 Tested with [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
 
-1. <code>$ git clone https://github.com/leymannx/dockerix.git dockerix</code>
+1. <code>$ git clone https://github.com/leymannx/dockerix.git --branch 0.1.1 dockerix</code>
 2. <code>$ cd dockerix</code>
 3. <code>$ docker-composer up -d --force-recreate</code>
 
