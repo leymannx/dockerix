@@ -39,6 +39,9 @@ services:
       SYNC_MAX_INOTIFY_WATCHES: 400000
       SYNC_VERBOSE: 1
       SYNC_PREFER: newer
+      SYNC_EXTRA_UNISON_PROFILE_OPTS: |
+        ignore = Path .DS_Store
+        ignore = Name {.*,*}.sw[pon]
     privileged: true
 
   filesync_mariadb:
@@ -53,4 +56,7 @@ services:
       SYNC_MAX_INOTIFY_WATCHES: 40000
       SYNC_VERBOSE: 1
       SYNC_PREFER: newer
+      SYNC_EXTRA_UNISON_PROFILE_OPTS: |
+        ignore = Path .DS_Store
+        ignore = Name {.*,*}.sw[pon]
     privileged: true
