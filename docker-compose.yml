@@ -38,6 +38,7 @@ services:
       SYNC_DESTINATION: /var/www
       SYNC_MAX_INOTIFY_WATCHES: 400000
       SYNC_VERBOSE: 1
+      SYNC_PREFER: newer
     privileged: true
 
   filesync_mariadb:
@@ -51,4 +52,5 @@ services:
       SYNC_DESTINATION: /var/lib/mysql
       SYNC_MAX_INOTIFY_WATCHES: 40000
       SYNC_VERBOSE: 1
+      SYNC_PREFER: newer
     privileged: true
