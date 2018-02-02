@@ -17,7 +17,7 @@ The base image comes with:
 - <code>composer</code>
 - <code>npm</code>
 
-The databases can be accessed with <code>mysql -uroot -proot -hmariadb</code>. When it comes to connecting to a databases you have to define <code>mariadb</code> as host (where it usually would be <code>localhost</code>).
+The databases can be accessed with <code>mysql -uroot -proot -hmariadb</code> from within the base container. When it comes to connecting to a databases you have to define <code>mariadb</code> as host (where it usually would be <code>localhost</code>).
 
 ## Possible routine
 
