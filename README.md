@@ -50,7 +50,11 @@ Now visit [http://localhost:8856/drupal7](http://localhost:8856/drupal7) in your
 
 Honestly without any fine-tuning page load times can be super bad with the initial **version 1** setup. Time-to-First-Byte of up to 10 seconds per node. This delay is caused by Docker for Mac's built-in volume mount and file sync process. You could simply fix it by not mounting any host volumes. But that really can't be it.
 
-Starting with **version 2** I've included two of cweagon's [bg-sync](https://hub.docker.com/r/cweagans/bg-sync/) containers. They dramatically improve page load times. They only need a little while for the first sync ( 5-15 minutes). From then on Time-To-First-Byte will be less then a second. Pretty good. Only this limits this version to Mac OS and Docker for Mac. You may want to try other background sync approaches on a differing host.
+Starting with **version 2** I've included two of cweagan's [bg-sync](https://hub.docker.com/r/cweagans/bg-sync/) containers. They dramatically improve page load times. They only need a little while for the first sync ( 5-15 minutes). From then on Time-To-First-Byte will be less then a second. Pretty good. Only this limits this version to Mac OS and Docker for Mac. You may want to try other background sync approaches on a differing host.
+
+Note: When using this image as is (with cweagans/bgsync) and if you ever have to run <code>docker-compose down</code> pay attention to prevent the initial and time-consuming filesync on the next run by restarting the containers with <code>docker-compose restart -d</code> in their already-synced state (which normally is done automatically on your Mac's wake-up or boot).
+
+Also before you shut down the containers or your Mac you may have a look at the Activity Monitor and look if the <code>hyperkit</code> process is not super-active anymore (CPU usage > 100%). If it is, you may like to wait a short while until it's done (CPU usage ~ 1-5%). Which simply means to wait that bg-sync is done syncing and there will be no/less conflicts on the next restart. 
 
 ## Kudos to
 
