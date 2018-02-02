@@ -20,7 +20,7 @@ services:
     image: mariadb
     restart: always
     volumes:
-      - /var/lib/mysql
+    #  - /var/lib/mysql
       - ./conf.d/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf:delegated
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -46,19 +46,19 @@ services:
         ignore = Path supervisor.pid
     privileged: true
 
-  filesync_mariadb:
-    image: cweagans/bg-sync
-    restart: always
-    volumes:
-      - ./databases:/source
-    volumes_from:
-      - mariadb
-    environment:
-      SYNC_DESTINATION: /var/lib/mysql
-      SYNC_MAX_INOTIFY_WATCHES: 40000
-      SYNC_VERBOSE: 1
-      SYNC_PREFER: newer
-      SYNC_EXTRA_UNISON_PROFILE_OPTS: |
-        ignore = Path .DS_Store
-        ignore = Name {.*,*}.sw[pon]
-    privileged: true
+#  filesync_mariadb:
+#    image: cweagans/bg-sync
+#    restart: always
+#    volumes:
+#      - ./databases:/source
+#    volumes_from:
+#      - mariadb
+#    environment:
+#      SYNC_DESTINATION: /var/lib/mysql
+#      SYNC_MAX_INOTIFY_WATCHES: 40000
+#      SYNC_VERBOSE: 1
+#      SYNC_PREFER: newer
+#      SYNC_EXTRA_UNISON_PROFILE_OPTS: |
+#        ignore = Name .DS_Store
+#        ignore = Name {.*,*}.sw[pon]
+#    privileged: true
