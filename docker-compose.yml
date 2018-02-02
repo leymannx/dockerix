@@ -40,10 +40,9 @@ services:
       SYNC_VERBOSE: 1
       SYNC_PREFER: newer
       SYNC_EXTRA_UNISON_PROFILE_OPTS: |
-        ignore = Path .DS_Store
+        ignore = Name .DS_Store
         ignore = Name {.*,*}.sw[pon]
-        ignore = Path supervisor.log
-        ignore = Path supervisor.pid
+        ignore = Name supervisor.*
     privileged: true
 
 #  filesync_mariadb:
