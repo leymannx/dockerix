@@ -43,6 +43,9 @@ services:
         ignore = Name .DS_Store
         ignore = Name {.*,*}.sw[pon]
         ignore = Name supervisor.*
+        ignore = Path html
+        ignore = Path */node_modules
+        ignore = Path */vendor
     privileged: true
 
 #  filesync_mariadb:
