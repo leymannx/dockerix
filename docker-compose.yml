@@ -42,6 +42,8 @@ services:
       SYNC_EXTRA_UNISON_PROFILE_OPTS: |
         ignore = Path .DS_Store
         ignore = Name {.*,*}.sw[pon]
+        ignore = Path supervisor.log
+        ignore = Path supervisor.pid
     privileged: true
 
   filesync_mariadb:
