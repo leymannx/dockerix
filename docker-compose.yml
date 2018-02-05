@@ -42,6 +42,8 @@ services:
         ignore = Name supervisord.*
         ignore = Name *.sql
         ignore = Name *.tmp
+        ignore = Name .idea
+        ignore = Name .git
         ignore = Name vendor
         ignore = Name node_modules
         ignore = Path html
