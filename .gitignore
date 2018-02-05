@@ -1,7 +1,5 @@
 apache-multiphp
 
-databases
-
 www/html
 www/php*/*
 !www/php*/index.php
