@@ -4,7 +4,6 @@ services:
 
   multiphp:
     image: leymannx/apache-multiphp
-    restart: always
     ports:
       - 8856:8856
       - 8871:8871
@@ -18,7 +17,6 @@ services:
 
   mariadb:
     image: mariadb
-    restart: always
     volumes:
     #  - /var/lib/mysql
       - ./conf.d/mariadb.cnf:/etc/mysql/conf.d/mariadb.cnf:delegated
@@ -29,7 +27,6 @@ services:
 
   filesync_multiphp:
     image: cweagans/bg-sync
-    restart: always
     volumes:
       - ./www:/source
     volumes_from:
@@ -52,7 +49,6 @@ services:
 
 #  filesync_mariadb:
 #    image: cweagans/bg-sync
-#    restart: always
 #    volumes:
 #      - ./databases:/source
 #    volumes_from:
