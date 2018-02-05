@@ -42,8 +42,8 @@ services:
       SYNC_EXTRA_UNISON_PROFILE_OPTS: |
         ignore = Name .DS_Store
         ignore = Name {.*,*}.sw[pon]
-        ignore = Name supervisor.log
-        ignore = Name supervisor.pid
+        ignore = Name supervisord.*
+        ignore = Name *.sql
         ignore = Name *.tmp
         ignore = Name vendor
         ignore = Name node_modules
