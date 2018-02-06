@@ -38,7 +38,7 @@ services:
       SYNC_PREFER: newer
       SYNC_EXTRA_UNISON_PROFILE_OPTS: |
         ignore = Name .DS_Store
-        ignore = Name {.*,*}.sw[pon]
+        ignore = Name {.*.*,.*,*}.sw[pon]
         ignore = Name supervisord.*
         ignore = Name *.sql
         ignore = Name *.tmp
