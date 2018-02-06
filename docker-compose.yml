@@ -3,7 +3,7 @@ version: '2'
 services:
 
   multiphp:
-    image: leymannx/apache-multiphp
+    image: leymannx/apache-multiphp:0.2.5
     ports:
       - 8856:8856
       - 8871:8871
