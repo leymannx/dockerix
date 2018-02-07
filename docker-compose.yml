@@ -42,6 +42,7 @@ services:
         ignore = Name supervisord.*
         ignore = Name *.sql
         ignore = Name *.tmp
+        ignore = Name .unison.*
         ignore = Name .idea
         ignore = Name .git
         ignore = Name vendor
